@@ -93,11 +93,11 @@ WSGI_APPLICATION = 'CommonChecklist.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'kepler_db',
         'USER': 'postgres',
         # 'USER': 'samyakbvs',
-        'PASSWORD': '12345',
+        'PASSWORD': 'kepler69',
         'HOST': 'localhost',
         'PORT': '',
     }

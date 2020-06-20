@@ -28,7 +28,7 @@ urlpatterns = [
     # Adding Code below this
     path('search/', views.search, name="search"),
     path('recommendations/', views.recommend, name="recommendations"),
-    path('myList/', views.myList, name="myList"),
+   # path('myList/', views.myList, name="myList"),
     path('addCollege/', views.AddCollege.as_view(), name='addCollege'),
     path('viewCollege/',views.viewColleges.as_view(), name="viewCollege")
 ]

@@ -216,8 +216,8 @@ def recommend(request):
     return render(request, 'recommendations.html')
 
 
-def myList(request):
-    return render(request, 'myList.html')
+#def myList(request):
+#  return render(request, 'myList.html')
 
 # Add College Functionality
 
