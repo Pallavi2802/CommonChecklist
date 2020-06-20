@@ -1,84 +1,91 @@
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <meta charset="utf-8">
     <title>Login</title>
     <style media="screen">
-      .spec{
-        margin-bottom:20px;
-      }
-			*{
-			font-family: 'Poppins', sans-serif;
-			}
-				nav{
-					background-color:#866ec7!important;
-				}
-				h1{
-					color:#866ec7;
-				}
-				input{
-					border:2px solid #866ec7!important;
-					padding: 10px;
-				}
-				input::placeholder{
-					color:#866ec7!important;
-				}
-				button{
-					padding: 10px;
-					background-color: #866ec7!important;
-					color: white!important;
-				}
+        .spec {
+            margin-bottom: 20px;
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav {
+            background-color: #866ec7 !important;
+        }
+
+        h1 {
+            color: #866ec7;
+        }
+
+        input {
+            border: 2px solid #866ec7 !important;
+            padding: 10px;
+        }
+
+        input::placeholder {
+            color: #866ec7 !important;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #866ec7 !important;
+            color: white !important;
+        }
     </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'Loginuser' %}">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'Signupuser' %}">Sign up</a>
-      </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'Loginuser' %}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'Signupuser' %}">Sign up</a>
+            </li>
 
-    </ul>
-  </div>
-  </nav>
-  <div class="conatiner" style="width:30%;margin:0 auto;margin-top: 150px;">
+        </ul>
+    </div>
+</nav>
+<div class="conatiner" style="width:30%;margin:0 auto;margin-top: 150px;">
 
-<h1 class="text-center spec">College Collab</h1>
-<br>
-{% if error %}
-{{error}}
-{% endif %}
-  <form method="post" action="{% url 'Loginuser'%}">
-    {% csrf_token %}
-  <div class="form-group">
-    <!-- <label for="exampleInputEmail1">Email address</label> -->
-    <input placeholder="Username"type="text" class="form-control" id="exampleInputEmail1" name="Username" aria-describedby="emailHelp">
-    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-  </div>
-  <div class="form-group">
-    <!-- <label for="exampleInputPassword1">Password</label> -->
-    <input type="password" placeholder="Password"class="form-control"name="Password" id="exampleInputPassword1">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <br>
-  <button type="submit" class="btn">Submit</button>
-  <div class="text-center mt-4 font-weight-light">
-  <a href="{% url 'password_reset' %}" class="text-primary">Forgot Password?</a>
+    <h1 class="text-center spec">College Collab</h1>
+    <br>
+    {% if error %}
+        {{ error }}
+    {% endif %}
+    <form method="post" action="{% url 'Loginuser' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <!-- <label for="exampleInputEmail1">Email address</label> -->
+            <input placeholder="Username" type="text" class="form-control" id="exampleInputEmail1" name="Username"
+                   aria-describedby="emailHelp">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+            <!-- <label for="exampleInputPassword1">Password</label> -->
+            <input type="password" placeholder="Password" class="form-control" name="Password"
+                   id="exampleInputPassword1">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <br>
+        <button type="submit" class="btn">Submit</button>
+        <div class="text-center mt-4 font-weight-light">
+            <a href="{% url 'password_reset' %}" class="text-primary">Forgot Password?</a>
+        </div>
+    </form>
 </div>
-  </form>
-  </div>
 
-  </body>
+</body>
 </html>

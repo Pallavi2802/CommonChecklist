@@ -1,0 +1,141 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'super.css' %}">
+    <link rel="stylesheet" href="{% static 'footer.css' %}">
+    <script src="https://use.fontawesome.com/977b0e453b.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://api.collegeai.com/v1/api/bundle.js"></script>
+    <title>search college</title>
+</head>
+<style media="screen">
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    h6 {
+        color: gray;
+    }
+
+    p {
+        color: gray;
+    }
+
+    input {
+        width: 30%;
+        height: 50px;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    .main-content {
+        height: auto;
+        width: auto;
+    }
+
+    .jss21 {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    }
+
+    button {
+        width: 30%;
+        margin-top: 20px;
+        background-color: #866ec7;
+        height: 50px;
+        color: white;
+    }
+
+    h4 {
+        margin-top: 20px;
+        font-size: 15px;
+        color: gray;
+    }
+
+    a {
+        color: #866ec7;
+        margin-top: 20px !important;
+        font-style: italic;
+    }
+
+
+
+    @media only screen and (max-width: 600px) {
+
+        input,
+        button {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+
+        h4 {
+            margin-top: 40px;
+        }
+    }
+</style>
+
+<body>
+    <div class="main-content">
+        <div class="collegeai collegeai-session-data" data-api-key="zPrUOEVtV86G"></div>
+        <a href="{% url 'studentHome' %}"><i style="margin-bottom: 20px;float: right;" class="fa fa-home fa-2x"></i></a>
+        <h3>Search College </h3>
+        <div class="content">
+            <div class="inner">
+                <div style="display: flex; flex-direction: row; flex: 1">
+
+                    <!-- FILTER -->
+                    <div class="collegeai-filter-view">
+                    </div>
+
+                    <!-- COLLEGE LIST -->
+                    <div class="collegeai-college-list" data-colleges-per-page="4" data-show-info-table="true"
+                        data-info-ids="student-faculty-ratio,average-net-cost">
+                    </div>
+
+
+                </div>
+                <!-- <div class="collegeai-acceptance-curves"></div> -->
+
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="main-content">
+
+    </div>
+
+    <br>
+    <h4>
+        Team College Collab </h4>
+    </div>
+    <footer class="site-footer">
+        College Collab by Kepler Developers
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

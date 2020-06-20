@@ -1,229 +1,272 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
-  	<title>College Collab</title>
+
+<head>
+    <title>College Collab</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-		<link rel="stylesheet" href="{% static 'footer.css' %}">
-  </head>
-	<style media="screen">
-
-		h3{
-			font-size: 20px;
-			color:gray;
-		}
-		.timer-title{
-			color:gray;
-		}
-		p{
-			color:#6749b9;
-		}
-    .side{
-      display: flex !important;
+    <link rel="stylesheet" href="{% static 'footer.css' %}">
+</head>
+<style media="screen">
+    h3 {
+        font-size: 20px;
+        color: gray;
     }
-    .deadline{
-      margin-top: 34vh;
-      margin-right: 50px;
+
+    .timer-title {
+        color: gray;
     }
-		/* #866ec7 */
-	</style>
-  <body>
 
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-				<div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary">
-	          <i class="fa fa-bars"></i>
-	          <span class="sr-only">Toggle Menu</span>
-	        </button>
-        </div>
-				<div class="p-4 pt-5">
-		  		<h1><a href="index.html" class="logo">College Collab</a></h1>
-	        <ul class="list-unstyled components mb-5">
-	          <li class="active">
-	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Essays</a>
-	            <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li>
-                    <a href="{% url 'addEssay' %}"> Add essays to your profile </a>
-                </li>
-                <li>
-                    <a href="{% url 'viewEssay' %}">View your essays</a>
-                </li>
-	            </ul>
-	          </li>
-	          <li>
-              <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Activities</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu1">
-                <li>
-                    <a href="{% url 'addActivity' %}">Add activities to your profile</a>
-                </li>
-                <li>
-                    <a href="{% url 'viewActivity' profile.user %}">View your activities</a>
-                </li>
-              </ul>
-	          </li>
-						<li>
-              <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Recommenders</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu2">
-                <li>
-                    <a href="{% url 'addLOR' %}">Add recommenders to your profile</a>
-                </li>
-                <li>
-                    <a href="{% url 'viewLOR' %}">View your recommenders</a>
-                </li>
-              </ul>
-	          </li>
-						<li>
-              <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Scores</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu3">
-                <li>
-                    <a href="{% url 'addTesting' %}">Add scores to your profile</a>
-                </li>
-                <li>
-                    <a href="{% url 'viewTesting' %}">View your scores</a>
-                </li>
-              </ul>
-	          </li>
-            <li>
-              <a href="#pageSubmenuu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Notes</a>
-              <ul class="collapse list-unstyled" id="pageSubmenuu">
-                <li>
-                    <a href="{% url 'viewNotes' %}">View Notes</a>
-                </li>
-              </ul>
-            </li>
-						<li>
-              <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Transcripts</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu4">
-                <li>
-                    <a href="{% url 'addTranscript' %}">Add transcripts to your profile</a>
-                </li>
-                <li>
-                    <a href="{% url 'viewTranscripts' %}">View your transcripts</a>
-                </li>
-              </ul>
-	          </li>
-						<li>
-							<a href="{% url 'profile' user.username %}"> View your profile </a>
-						</li>
-						<li>
-							<a href="{% url 'invitations' %}"> View invites </a>
-						</li>
-            <li>
-              <a href="{% url 'changePassword' %}"> Change Password </a>
-            </li>
-            <li>
-              <a href="{% url 'logoutuser' %}"> Logout </a>
-            </li>
-	        </ul>
+    p {
+        color: #6749b9;
+    }
+
+    .side {
+        display: flex !important;
+    }
+
+    .deadline {
+        margin-top: 34vh;
+        margin-right: 50px;
+    }
+
+    /* #866ec7 */
+</style>
+
+<body>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle Menu</span>
+                </button>
+            </div>
+            <div class="p-4 pt-5">
+                <h1><a href="index.html" class="logo">College Collab</a></h1>
+                <ul class="list-unstyled components mb-5">
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">Essays</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="{% url 'addEssay' %}"> Add essays to your profile </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'viewEssay' %}">View your essays</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">Activities</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu1">
+                            <li>
+                                <a href="{% url 'addActivity' %}">Add activities to your profile</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'viewActivity' profile.user %}">View your activities</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">Recommenders</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu2">
+                            <li>
+                                <a href="{% url 'addLOR' %}">Add recommenders to your profile</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'viewLOR' %}">View your recommenders</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">Scores</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu3">
+                            <li>
+                                <a href="{% url 'addTesting' %}">Add scores to your profile</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'viewTesting' %}">View your scores</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenuu" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">Notes</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenuu">
+                            <li>
+                                <a href="{% url 'viewNotes' %}">View Notes</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">Transcripts</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu4">
+                            <li>
+                                <a href="{% url 'addTranscript' %}">Add transcripts to your profile</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'viewTranscripts' %}">View your transcripts</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">Search Colleges</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu5">
+                            <li>
+                                <a href="{% url 'search' %}">Search Colleges</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'recommendations' %}">Recommended Colleges</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'myList' %}">Saved Colleges</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">Your Colleges</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu6">
+                            <li>
+                                <a href="{% url 'addCollege' %}">Add Your Colleges</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'viewCollege' %}">View Your Colleges</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{% url 'profile' user.username %}"> View your profile </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'invitations' %}"> View invites </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'changePassword' %}"> Change Password </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'logoutuser' %}"> Logout </a>
+                    </li>
+                </ul>
 
 
-
-
-
-	      </div>
-    	</nav>
+            </div>
+        </nav>
 
         <!-- Page Content  -->
         <div class="side">
-          <div id="content" class="p-4 p-md-4 pt-5">
+            <div id="content" class="p-4 p-md-4 pt-5">
 
-            <h2 class="mb-4">Dashboard</h2>
-            <h3 class="mb-4 "> Hi there, {{ profile.name }} </h3>
-            {% if profile.counselor.name %}
-            <h3 class="mb-4 "> Counselor -  {{ profile.counselor.name }} </h3>
-            {% endif%}
-            <p>Appyling to college is stressful. We know that. And we're here to help. With College Collab, our users can streamline their college application process. Serving as an intermediary to the Common Application portal, with College Collab, students can collect all the relevant documents they need for their application and get them approved by their counsellors.</p>
-
-
-            {% if profile.newmessage %}
-
-            <h6>You have new notes! <strong><a href="{% url 'viewNotes' %}">Go Check them Out</a> </strong> </h6>
-            {% endif %}
-
-            <h4> Important deadlines </h4>
-          <a href="{% url 'addDeadline' %}"> <button class="btn btn-success" type="button" name="button">Add a Deadline</button></a>
-          <br><br>
-          <h5 class="timer-title"> Upcoming Personal Deadlines</h5>
-          {% for d in deadlines.all %}
-          <h5 class="timer-title"> {{d.title}} - {{d.date|date:"M d, Y"}} </h5>
-           <p id="{{d.id}}">{{d.date|time:"H:i" }}</p>
-          {% endfor %}
-            <h5 class="timer-title"> SAT 2020 Testing dates (subject to change) </h5>
-            August 29, 2020   <p id="t4"></p>
-            October 3, 2020	<p id="t5"></p>
-            November 7, 2020 <p id="t6"></p>
-            December 5, 2020 <p id="t7"></p>
-            <h5 class="timer-title"> Early Decision Deadline - November 1st, 2020 </h5>
-            <p id="t1"></p>
-            <h5 class="timer-title"> Early Action (GATech) and Oxbridge Deadline - October 15th, 2020 </h5>
-            <p id="t3"></p>
-            <h5 class="timer-title"> Regular Decision Deadline - January 1st, 2021 </h5>
-            <p id="t2"></p>
+                <h2 class="mb-4">Dashboard</h2>
+                <h3 class="mb-4 "> Hi there, {{ profile.name }} </h3>
+                {% if profile.counselor.name %}
+                <h3 class="mb-4 "> Counselor - {{ profile.counselor.name }} </h3>
+                {% endif %}
+                <p>Appyling to college is stressful. We know that. And we're here to help. With College Collab, our
+                    users
+                    can streamline their college application process. Serving as an intermediary to the Common
+                    Application
+                    portal, with College Collab, students can collect all the relevant documents they need for their
+                    application and get them approved by their counsellors.</p>
 
 
+                {% if profile.newmessage %}
 
-          </div>
+                <h6>You have new notes! <strong><a href="{% url 'viewNotes' %}">Go Check them Out</a> </strong></h6>
+                {% endif %}
 
+                <h4> Important deadlines </h4>
+                <a href="{% url 'addDeadline' %}">
+                    <button class="btn btn-success" type="button" name="button">Add a Deadline</button>
+                </a>
+                <br><br>
+                <h5 class="timer-title"> Upcoming Personal Deadlines</h5>
+                {% for d in deadlines.all %}
+                <h5 class="timer-title"> {{ d.title }} - {{ d.date|date:"M d, Y" }} </h5>
+                <p id="{{ d.id }}">{{ d.date|time:"H:i" }}</p>
+                {% endfor %}
+                <h5 class="timer-title"> SAT 2020 Testing dates (subject to change) </h5>
+                August 29, 2020 <p id="t4"></p>
+                October 3, 2020 <p id="t5"></p>
+                November 7, 2020 <p id="t6"></p>
+                December 5, 2020 <p id="t7"></p>
+                <h5 class="timer-title"> Early Decision Deadline - November 1st, 2020 </h5>
+                <p id="t1"></p>
+                <h5 class="timer-title"> Early Action (GATech) and Oxbridge Deadline - October 15th, 2020 </h5>
+                <p id="t3"></p>
+                <h5 class="timer-title"> Regular Decision Deadline - January 1st, 2021 </h5>
+                <p id="t2"></p>
+
+
+            </div>
 
 
         </div>
-		</div>
+    </div>
 
-		<script>
-		function countdown(dateStr,id){
-			// Set the date we're counting down to
-			var countDownDate = new Date(dateStr).getTime();
+    <script>
+        function countdown(dateStr, id) {
+            // Set the date we're counting down to
+            var countDownDate = new Date(dateStr).getTime();
 
-			// Update the count down every 1 second
-			var x = setInterval(function() {
+            // Update the count down every 1 second
+            var x = setInterval(function () {
 
-			  // Get today's date and time
-			  var now = new Date().getTime();
+                // Get today's date and time
+                var now = new Date().getTime();
 
-			  // Find the distance between now and the count down date
-			  var distance = countDownDate - now;
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
 
-			  // Time calculations for days, hours, minutes and seconds
-			  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-			  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-			  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-			  // Display the result in the element with id="demo"
-			  document.getElementById(id).innerHTML = days + "d " + hours + "h "
-			  + minutes + "m " + seconds + "s ";
+                // Display the result in the element with id="demo"
+                document.getElementById(id).innerHTML = days + "d " + hours + "h "
+                    + minutes + "m " + seconds + "s ";
 
-			  // If the count down is finished, write some text
-			  if (distance < 0) {
-			    clearInterval(x);
-			    document.getElementById(id).innerHTML = "EXPIRED";
-			  }
-			}, 1000);
-		}
-		countdown("Nov 1, 2020 00:00:00","t1")
-		countdown("Jan 1, 2021 00:00:00","t2")
-		countdown("Oct 15, 2020 00:00:00","t3")
-		countdown("Aug 29, 2020 00:00:00","t4")
-		countdown("Oct 3, 2020 00:00:00","t5")
-		countdown("Nov 7, 2020 00:00:00","t6")
-		countdown("Dec 5, 2020 00:00:00","t7")
-    {% for d in deadlines %}
-    da = new Date("{{d.date.isoformat}}")
-    countdown("{{d.date.isoformat}}" ,"{{d.id}}")
-    {% endfor %}
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById(id).innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        }
 
-		</script>
+        countdown("Nov 1, 2020 00:00:00", "t1")
+        countdown("Jan 1, 2021 00:00:00", "t2")
+        countdown("Oct 15, 2020 00:00:00", "t3")
+        countdown("Aug 29, 2020 00:00:00", "t4")
+        countdown("Oct 3, 2020 00:00:00", "t5")
+        countdown("Nov 7, 2020 00:00:00", "t6")
+        countdown("Dec 5, 2020 00:00:00", "t7")
+        {% for d in deadlines %}
+        da = new Date("{{d.date.isoformat}}")
+        countdown("{{d.date.isoformat}}", "{{d.id}}")
+        {% endfor %}
+
+    </script>
 
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/popper.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-  </body>
+</body>
+
 </html>

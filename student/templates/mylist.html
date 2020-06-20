@@ -1,0 +1,9 @@
+<form class="" action="{% url 'addEssay' %}" method="post">
+    {% csrf_token %}
+    
+          <input type="text" name="name" placeholder="Name">
+          <br>
+                <input type="text" name="link" placeholder="Paste here">
+                <br>
+                <button type="submit" name="button">Submit</button>
+          </form>
